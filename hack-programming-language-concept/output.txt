@@ -1,0 +1,18 @@
+hello world
+This is six
+6
+e
+13
+Function <'series'> at 24
+5
+3
+Class <'A_class'> at 57
+Shdw boiz
+I am a Shdw
+Eira
+ErrorFound:
+  \Im scared
+File:
+  main.hack, line 86
+ScaredyCatError:
+  You are a scaredy cat
