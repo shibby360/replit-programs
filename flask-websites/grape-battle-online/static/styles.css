@@ -1,0 +1,26 @@
+body, input, button, select {
+  font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+h4 {
+  margin: 0;
+}
+.hide {
+  display: none;
+}
+#gtx-trans {
+  display: none;
+}
+#so .nd {
+  color: green;
+  background-color: lightgreen;
+}
+#so .md {
+  color: #b56727;
+  background-color: orange;
+}
+#so .hd {
+  color: red;
+  background-color: pink;
+}
