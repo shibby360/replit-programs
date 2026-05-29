@@ -1,0 +1,22 @@
+/* * {
+  font-family: sans-serif;
+}
+p {
+  margin: 0;
+}
+h1 {
+  margin-bottom: 0;
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h5 {
+  margin-top: 0;
+} */
+#sbmtbtn {
+  border: 3px black solid;
+}
+body {
+  background: linear-gradient(to left, lightgreen 50%, lightblue 100%);
+}

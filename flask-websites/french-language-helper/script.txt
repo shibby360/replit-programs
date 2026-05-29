@@ -1,0 +1,7 @@
+The purpose of my project is to assist potential tourists who want to travel to France learn enough French so that they can communicate during their stay in France. I was motivated to do this project because in my 2022 visit to France, I met many people who did not speak any English at all. 
+
+I plan to build this app into a mobile app so that it can be used by anybody around the world at any time conveniently on their phone. They can use it before their visit to France to get familiar with the language and they can also use it during their stay.
+
+To use this app, you can either pick an option from this group, and pick a word from that category, or you can directly type a word in this box.
+
+One challenge I had was that I wanted to add more atyles, but boostrap had a limited set. Another challenge I faced was adding pronunciations for the words.

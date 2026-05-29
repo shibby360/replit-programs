@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>French Language Helper</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+<body class='m-3'>
+  <h1 class='text-danger'>French Language Helper 🇫🇷</h1>
+  <h3 class='text-primary'>Learn French quickly!!</h3>
+  <h5>Choose a group that you would like to learn more about.</h5>
+  <select id='chooser' class='form-select bg-secondary text-white'>
+    <option selected disabled hidden>Pick an option</option>
+    <option value="food">Food</option>
+    <option value="clothing">Clothing</option>
+    <option value="travel">Travel assist</option>
+  </select>
+  <select id='choiceinput' class='form-control bg-info text-white'>
+    <option selected disabled hidden></option>
+  </select>
+  <button class='sbmtbtn btn-success btn' id='choice'> => French&nbsp;<img width='30' height='30' src="{{ url_for('static', filename='cartoon-eiffel-tower-emoji-icon-isolated-vector-145038459.jpg') }}"></button>
+  <button class='btn btn-success pron' disabled>Pronunciation 🗣️</button>
+  <h4>OR</h4>
+  <h5>In the box below, type an English word to learn it in French.</h5>
+  <input type='text' id='wordinput' placeholder='Type a word here... get help on it!' autocomplete='off' class='form-control bg-info'>
+  <button class='sbmtbtn btn btn-success' id='word'> => French&nbsp;<img width='30' height='30' src="{{ url_for('static', filename='cartoon-eiffel-tower-emoji-icon-isolated-vector-145038459.jpg') }}"></button>
+  <button class='btn btn-success pron' disabled>Pronunciation 🗣️</button>
+  <div id='alltranslations'></div>
+  <script src='https://code.jquery.com/jquery-3.6.3.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js'></script>
+  <script>
+    var allpronounciations = {
+      'fromage':'fro-maazh',
+      'ringardise':'rehn-gar-deez',
+      'ouistiti':'wees-tee-tee',
+      'palet':'paa-lay',
+      'sandwich':'sahnd-weesh',
+      'pizza':'peet-saa',
+      'croissant':'kwa-saahn',
+      'chemise':'shuh-meez',
+      'chemisier':'shuh-meez-ee-ay',
+      'maillot':'maa-eeyo',
+      'pantalon':'paan-taa-lohn',
+      'de pantalon':'duh paan-taa-lohn',
+      'jambe de panatalon':'zhaahmb duh paan-taa-lohn',
+      'empocher':'aahm-po-shay',
+      'jupe':'zhoop',
+      'border, longer':'borday, longay',
+      'aéroport':'aa-ay-ro-por',
+      'hôtel':'hotel',
+      'taxi':'taa-ksee',
+      'se déplacer au sol':'suh day-plaa-say o sol',
+      'conduire':'kohn-dweer',
+      'train':'trehn',
+    }
+    function getdiv(translation) {
+      var divstructure = `<h1>Suggestions</h1>
+      `
+      for(var a of translation['entries']) {
+        var notes = a['to_word'][0]['notes']
+        var grmr = a['to_word'][0]['grammar']
+        var enexampl = a['from_example']
+        var frexampl = a['to_example']
+        var pronounciation = allpronounciations[a['to_word'][0]['meaning']]
+        var transdivstruct = `<p class='m-1'>Context: ${a['context']}</p>
+        ${enexampl == null ? '' : `<p class='m-1'>English example: ${enexampl}</p>`}
+        <p class='m-1'>Word: ${a['to_word'][0]['meaning']}(<i>${a['from_word']['grammar']}</i>)</p>
+        ${pronounciation == null ? '' : `<p class='m-1 pronounce'>Pronunciation: ${pronounciation}</p>`}
+        ${notes == null ? '' : `<p class='m-1'>Notes: ${notes}</p>`}
+        ${grmr == null ? '' : `<p class='m-1'>Grammar notes: ${grmr}</p>`}
+        ${frexampl == '' ? '' : `<p class='m-1'>French example: ${frexampl}</p>`}<br>`
+        divstructure += transdivstruct
+      }
+      return divstructure
+    }
+    function translator(ev) {
+      $('.pron').attr('disabled', false)
+      $.post('/translate', {
+        'word':$('#'+ev.target.id+'input').val()
+      },
+      function(data, status) {
+        var alltranslations = $('#alltranslations')
+        alltranslations.empty()
+        if(data == 'no translation') {
+          var msg = $('<h3>')
+          msg.css('color', 'red').text(`No words found for "${$('#word').val()}".`).css('margin-top', '10px')
+          alltranslations.append(msg)
+          return
+        }
+        var translationdiv = $('<div>')
+        translationdiv.html(getdiv(data['translations'][0]))
+        alltranslations.append(translationdiv)
+      })
+    }
+    $('.sbmtbtn').on('click', translator)
+    function showpronounciation(ev) {
+      $('.pronounce').css('color', 'blue').addClass('fw-bold')
+    }
+    $('.pron').on('click', showpronounciation)
+  </script>
+  <script>
+    function putchoices(ev) {
+      $('#choiceinput').empty()
+      var choices = {
+        'food':['sandwich', 'pizza', 'croissant'],
+        'clothing':['shirt', 'trousers', 'skirt'],
+        'travel':['airport', 'hotel', 'taxi', 'train']
+      }
+      for(var i of choices[$('#chooser').val()]) {
+        var el = $(`<option id=${i}>${i}</option>`)
+        $('#choiceinput').append(el)
+      }
+    }
+    $('#chooser').on('change', putchoices)
+  </script>
+</body>
+</html>
