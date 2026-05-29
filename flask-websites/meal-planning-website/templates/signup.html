@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Sign up {% endblock %}
+{% block body %}
+<form method='post'>
+  <label for='username'>Username</label>
+  <br>
+  <input type='text' id='unm' name='username' autocomplete="off">
+  <br><br>
+  <label for='password'>Password</label>
+  <br>
+  <input type='password' id='pwd' name='password' autocomplete="off">
+  <br>
+  <input type='submit' value='Sign up'>
+</form>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='login.js') }}"></script>
+{% endblock %}

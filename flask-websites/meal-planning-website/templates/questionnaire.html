@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Questions for meal plan {% endblock %}
+{% block body %}
+<!-- <basic-inputs id='basic-inputs'></basic-inputs> -->
+<p class='m-0'>Please select your preferences from each food group</p>
+<food-prefs opts='Broccoli,Lettuce,Kale,Spinach' id='veggies'>Veggies</food-prefs>
+<food-prefs opts='Apple,Banana,Pears' id='fruits'>Fruits</food-prefs>
+<food-prefs opts='Wheat bread,Pancake flour,Brown rice,Whole wheat,Spaghetti noodles' id='grains'>Grains</food-prefs>
+<a href='/mealplan' id='seeplan'>See your plan!</a>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='questions.js') }}"></script>
+{% endblock %}

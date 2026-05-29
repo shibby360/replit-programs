@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Log in {% endblock %}
+{% block body %}
+<form method='post'>
+  <label for='username'>Username</label>
+  <br>
+  <input type='text' id='unm' name='username' autocomplete="off">
+  <br><br>
+  <label for='password'>Password</label>
+  <br>
+  <input type='password' id='pwd' name='password'>
+  <br>
+  <input type='submit' value='Log in'>
+</form>
+<a id='gotoprof'></a>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class='bg-{{ category }}-subtle m-2 p-4 border rounded-4 border-4 border-{{ category }} flashbox'>
+        <p class='m-0 d-xs-inline text-center'>{{ message }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='login.js') }}"></script>
+{% endblock %}

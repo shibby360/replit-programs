@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %} Meal plan {% endblock %}
+{% block body %}
+<h4>Based on the options you chose, here is a meal plan for you.</h3>
+<table class='table border border-dark'>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope='col'>Sunday</th>
+      <th scope='col'>Monday</th>
+      <th scope='col'>Tuesday</th>
+      <th scope='col'>Wednesday</th>
+      <th scope='col'>Thursday</th>
+      <th scope='col'>Friday</th>
+      <th scope='col'>Saturday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope='row'>Breakfast</th>
+      <td class='bft sun'>Oatmeal</td>
+      <td class='bft mon'>Smoothie</td>
+      <td class='bft tue'>Avacado toast</td>
+      <td class='bft wed'></td>
+      <td class='bft thr'>Oatmeal</td>
+      <td class='bft fri'>Smoothie</td>
+      <td class='bft sat'>Whole Wheat Pancakes</td>
+    </tr>
+    <tr>
+      <th scope='row'>Lunch</th>
+      <td class='lch sun'>Sandwich</td>
+      <td class='lch mon'>Tomato Soup/Salad</td>
+      <td class='lch tue'>Pasta</td>
+      <td class='lch wed'>Pizza</td>
+      <td class='lch thr'>Noodles</td>
+      <td class='lch fri'>Brown Rice and Veggies</td>
+      <td class='lch sat'>Broccoli Soup</td>
+    </tr>
+    <tr>
+      <th scope='row'>Dinner</th>
+      <td class='dnr sun'>Soup</td>
+      <td class='dnr mon'>Salad</td>
+      <td class='dnr tue'>Sautéd Veggies</td>
+      <td class='dnr wed'>Sautéd Tofu & Veggies</td>
+      <td class='dnr thr'>Brown rice and Veggies</td>
+      <td class='dnr fri'>Pasta</td>
+      <td class='dnr sat'>Noodles</td>
+    </tr>
+  </tbody>
+</table>
+<p id='recipes' style='display: none;'>{{ recipes|safe }}</p>
+<div id='recipediv'>
+  <h3>Recipe:</h3>
+  <p id='recipe'>Click any item to see the recipe</p>
+</div>
+<a id='returnlink' href='/profile/11'>Back to profile</a>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='mealplan.js') }}"></script>
+{% endblock %}

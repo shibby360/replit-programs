@@ -1,0 +1,1 @@
+these are websites i'd like to keep code for but i'm not going so far as to maintain, bc they require flask or smth and its not a static thing i can throw on replit-sites
