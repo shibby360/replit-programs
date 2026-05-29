@@ -1,0 +1,175 @@
+:root {
+  --rainintensity: 6px;
+  --gcwidth: 50vw;
+}
+#gamecontainer {
+  width: var(--gcwidth);
+  height: calc(var(--gcwidth) / 2);
+  overflow: hidden;
+  border: 3px black solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#player {
+  width: 10px;
+  height: 35%;
+  background-color: black;
+  position: absolute;
+  top: 65%;
+  left: calc((var(--gcwidth) / 2) - 5px);
+  z-index: 200;
+}
+.rain2 {
+  top: 5px;
+  left: calc(var(--rainintensity))
+}
+.raining {
+  border-bottom: var(--rainintensity) dotted blue;
+  top: 0px;
+  z-index: -1;
+  position: absolute;
+  opacity: 0.5;
+}
+
+/* tree css */
+.tree {
+  position: absolute;
+  width: 32%;
+  height: 75%;
+  top: 25%;
+}
+.treetop {
+  width: 100%;
+  height: 36%;
+}
+.treebottom {
+  background: brown;
+  width: 40%;
+  height: 64%;
+  left: 30%;
+  position: relative;
+}
+/* end tree css */
+
+/* rain intensity info css */
+#rainintensebox {
+  border: 3px red solid;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin: 0;
+  background: white;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 2em;
+}
+@keyframes rainwarnflash {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+.rainwarn {
+  display: none;
+}
+.rainwarnflash {
+  animation: rainwarnflash 1s infinite;
+  display: inline;
+}
+/* end rain intensity info css */
+
+/* obstacle css */
+.obstacle {
+  position: absolute;
+}
+.rock {
+  bottom: 0;
+}
+/* end obstacle css */
+
+/* speedbox styles */
+#speedbox {
+  position: absolute;
+  left: calc(var(--gcwidth) + 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(var(--gcwidth) / 2);
+}
+#speedbox > button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+#speedbox > button:hover {
+  cursor: pointer;
+}
+#speedbox > button:active {
+  background: #c2c2c2;
+}
+#speedbox > div {
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(0deg, #c5c5c5, transparent);
+  border-radius: 6px;
+}
+#speedbox > div#\31 {
+  background: linear-gradient(0deg, black, black, gray);
+}
+#speedbox > * {
+  border: 3px rgba(255,0,0,0.1) solid;
+}
+#speedctrlbox {
+  display: flex;
+  justify-content: center;
+}
+/* end speedbox styles */
+
+/* healthbox styles */
+#backhealthbar {
+  position: absolute;
+  width: calc(var(--gcwidth) / 2);
+  height: 10px;
+  background: #e9e9e9;
+  border: 3px #b2b2b2 solid;
+  top: calc(var(--gcwidth) / 2 + 10px);
+  left: calc(var(--gcwidth) / 2 - var(--gcwidth) / 4);
+}
+#healthbar {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: #FF5C5C;
+}
+/* end healthbox styles */
+
+/* timebox styles */
+#timebox {
+  position: absolute;
+  top: calc(var(--gcwidth) / 2 + 10px);
+  display: inline;
+  width: var(--gcwidth);
+  text-align: center;
+  font-family: monospace;
+  font-size: 3em;
+}
+/* end timebox styles */
+
+/* endblock styles */
+.endblock {
+  height: 100%;
+  background: pink;
+  width: 10%;
+  position: absolute;
+  top: 0px;
+}
+/* end endblock styles */
+
+/* gameendbox styles */
+/* end gameendbox styles */
