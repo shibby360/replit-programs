@@ -1,0 +1,17 @@
+backwards(or **bkwds**) *word*: Send word backwards
+me: Send bot name and tag
+happy: Be happy
+sad: pure sadness
+echo *word*: echo word
+spam *word number*: Send word number times. Number must be 3 digits(If you want one or two digits, use leading zeros)
+greet: Greet you
+prefix *prefix*: change prefix for your server
+invite: Get Invite link for bot and server
+scream *word*: Scream word.
+countdown(or **ctdwn**) *count*: Send a count second countdown. count must be 3 digits(If you want one or two digits, use leading zeros).
+gimme meme: Send a random meme
+dm: Get a DM from the bot
+my stuff *user*: send info about user
+time: Send PST time
+brawl stars box sim: Enter a Brawl stars box simulator
+suggest: suggest something to add to the bot
