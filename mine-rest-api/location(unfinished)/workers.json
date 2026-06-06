@@ -1,0 +1,15 @@
+{
+  "miner":{
+    "cost":50,
+    "currency":"coins",
+    "type":"worker",
+    "data":{
+      "income":50,
+      "income_currency":"coins",
+      "name":"miner",
+      "items_can_find":[
+        ""
+      ]
+    }
+  }
+}
